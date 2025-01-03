@@ -1,3 +1,42 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Slide-Up Animation */
+@keyframes slideUp {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Slide-Down Animation */
+  @keyframes slideDown {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+  
+  /* Apply the Slide-Up Animation */
+  .slide-up .relative {
+    animation: slideUp 0.9s ease-out forwards;
+  }
+  
+  /* Apply the Slide-Down Animation */
+  .slide-down .relative {
+    animation: slideDown 0.5s ease-in forwards;
+  }
+
 *{
     margin: 0px;
     padding: 0px;

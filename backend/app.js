@@ -5,6 +5,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const cors = require('cors');
+const sequelize = require('./db/db')
 const subscriptionRoutes = require('./routes/MailFormRoutes/SubscriptionRoutes');
 const vehiclesDetailRouter = require('./routes/Vehicles/ListingDetailRoutes');
 const vehiclesDetailContactRouter = require('./routes/Vehicles/ListingDetailRoutes');
@@ -16,6 +17,7 @@ const RandomExpensiveCar = require('./routes/Vehicles/RandomFetchRoute')
 const AddTeamMember = require('./routes/Team/MemberRoutes')
 const FetchTeamMember = require('./routes/Team/MemberRoutes')
 const ContactFormSubmissions = require('./routes/MailFormRoutes/ContactFormSubmissions')
+const UserRoutes = require('./routes/auth.routes')
 
 const fs = require('fs');
 const uploadDir = './uploads';
@@ -48,6 +50,16 @@ app.use('/api/vehicles/random/expensive', RandomExpensiveCar)
 app.use('/api/team/member', AddTeamMember)
 app.use('/api/team/member', FetchTeamMember)
 app.use('/api/contact/form', ContactFormSubmissions)
+app.use('/api/auth', UserRoutes)
+
+
+sequelize.sync()
+  .then(() => {
+    console.log('Models synchronized with the database.');
+  })
+  .catch((err) => {
+    console.error('Error syncing models:', err);
+  });
 
 
 const PORT = process.env.PORT || 7071;
