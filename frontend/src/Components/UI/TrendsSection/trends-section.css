@@ -1,0 +1,174 @@
+.carousel-container {
+    position: relative;
+    background-color: #666;
+    padding-left: 26px;
+    padding-bottom: 60px;
+  }
+  
+  .trend-vehicle-card {
+    background: #000422;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 380px;
+    margin-top: 20px;
+    transition: 0.3s ease;
+  }
+
+  .trend-vehicle-card:hover{
+    transform: translateY(5px);
+    border: #ff2121 1px solid;
+  }
+  
+  .trend-image-container {
+    position: relative;
+    height: 100%;
+  }
+  
+  .vehicle-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .featured-badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #ff2121;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  
+  .trend-info {
+    padding: 10px;
+    margin-bottom: 100px;
+  }
+  
+  .trend-info h4 {
+    margin: 10px 0;
+    font-size: 18px;
+    color: #ffffff;
+  }
+  
+  .trend-price {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    border-bottom: gray 1px solid;
+  }
+  
+  .trend-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .trend-button {
+    background-color: #ff2121;
+    width: fit-content;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .trend-button:hover{
+    background-color: #ff2121;
+  }
+  
+  .trend-details span::before {
+    content: "•";
+    color: #ff2121;
+    margin-right: 5px;
+  }
+  
+  .trend-details span {
+    margin-right: 10px;
+  }
+  
+  .custom-dot-list-style {
+    bottom: -30px;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .carousel-item-padding-40-px {
+    padding-right: 40px;
+  }
+  
+  .custom-arrow {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: bolder;
+    font-size: 20px;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+  }
+  
+  .custom-arrow:hover{
+    background-color: #ffffff;
+  }
+  
+  .custom-arrow-right {
+    left: 60px;
+  }
+  
+  .trend-header-container{
+    background-color: #666;
+    padding-bottom: 10px;
+    padding-top: 20px;
+  }
+  
+  .trend-header-container h1{
+    margin-left: 30px;
+    color: #ffffff;
+  }
+  
+  .trend-filter-options{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding-bottom: 20px;
+  }
+  
+  .trend-filter-options button{
+    width: fit-content;
+    padding: 10px;
+    color: #ffffff;
+    background-color: #000422;
+  }
+
+  .trend-filter-options button:hover{
+    background-color: #000422;
+  }
+  
+/* Mobile CSS */
+@media (max-width: 600px) {
+.trend-header-container h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+}

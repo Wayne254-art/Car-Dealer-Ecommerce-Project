@@ -1,0 +1,62 @@
+
+
+/* UserPackages.css */
+.user-packages-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .user-packages-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .user-packages-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .user-package-card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: left;
+  }
+  
+  .user-package-name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .user-package-features {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .user-package-features li {
+    margin-bottom: 5px;
+    color: #555;
+  }
+  
+  .user-package-select-btn {
+    background-color: #ff5722;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .user-package-select-btn:hover {
+    background-color: #e64a19;
+  }
+  

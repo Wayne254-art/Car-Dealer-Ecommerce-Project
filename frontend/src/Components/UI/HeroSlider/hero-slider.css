@@ -1,0 +1,88 @@
+
+
+
+
+
+
+.slider__item{max-width: 100%;height: 650px;}
+.slider__item-01{background: linear-gradient(rgba(255, 0, 0, 0),rgba(255, 0, 0, 0)),url('../../../Assets/Images/slider01.jpg');background-position: center;background-repeat: no-repeat;background-size: cover;}
+.slider__item-02{background: linear-gradient(rgba(255, 0, 0, 0),rgba(255, 0, 0, 0)),url('../../../Assets/Images/slider02.jpg');background-position: center;background-repeat: no-repeat;background-size: cover;}
+.slider__item-03{background: linear-gradient(rgba(255, 0, 0, 0),rgba(255, 0, 0, 0)),url('../../../Assets/Images/slider03.jpg');background-position: center;background-repeat: no-repeat;background-size: cover;}
+.hero__slider{overflow: hidden;}
+.slider__content{padding-top: 150px;}
+.slider__content h1{font-size: 3.2em;font-weight: 600;}
+.reserve__btn{background: #f70000 !important;color: #f70000;border: none;outline: none;width: fit-content;}
+.reserve__btn a{text-decoration: none;font-weight: 600;color: #fff;}
+
+.social-media-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.follow-us {
+    display: flex;
+    align-items: center;
+}
+
+.follow-us span {
+    font-size: 14px;
+    color: #666;
+    margin-right: 10px;
+}
+
+.icons {
+    display: flex;
+    gap: 10px;
+}
+
+.view-new-btn {
+    background-color: #ff2121;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    width: fit-content;
+}
+
+.view-new-btn:hover {
+    background-color: #e64a19;
+}
+
+
+@media (max-width: 464px) {
+    .slider__item {
+        height: 400px; /* Adjusted height for mobile */
+    }
+
+    .slider__content {
+        padding-top: 100px; /* Adjusted padding for mobile */
+    }
+
+    .slider__content h1 {
+        font-size: 2em; /* Adjusted font size for mobile */
+    }
+
+    .social-media-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .follow-us {
+        margin-bottom: 10px;
+    }
+
+    .follow-us span {
+        font-size: 12px;
+    }
+
+    .view-new-btn {
+        padding: 8px 16px; /* Adjusted padding for mobile */
+        font-size: 12px; /* Adjusted font size for mobile */
+    }
+}

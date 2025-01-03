@@ -1,0 +1,226 @@
+
+
+
+/* Contact Info Section */
+.cs-contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.cs-media {
+    font-size: 24px;
+    margin-right: 15px;
+}
+
+.cs-text {
+    flex: 1;
+}
+
+.cs-text h6 {
+    margin-bottom: 5px;
+    font-size: 18px;
+}
+
+.cs-text p {
+    margin: 0;
+}
+
+.cs-text p a {
+    display: block;
+    margin-bottom: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.cs-seprater {
+    text-align: center;
+}
+
+.cs-seprater span {
+    font-size: 36px;
+    color: #333;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .cs-contact-info {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* Optional: Adjust spacing and font sizes according to your design */
+
+
+.cs-seprater {
+    position: relative;
+    text-align: center;
+}
+
+.cs-seprater::before,
+.cs-seprater::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    height: 1px;
+    background-color: #333;
+}
+
+.cs-seprater::before {
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.cs-seprater::after {
+    left: 0;
+    transform: translateY(-50%);
+}
+
+
+/* Add this CSS to your existing info.css file */
+.fileInputLabel {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 30px;
+  }
+  
+  .upload-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .upload-button:hover {
+    background-color: #0056b3;
+  }  
+
+
+.cf-btn-submit input[type=submit]{text-transform:uppercase;font-size:11px;height:38px;width:138px;background-color:#ff2121;font-weight:bold;border:1px solid transparent;color: #ffffff;}
+.cf-btn-submit input[type=submit]:hover{background-color: #f10000;}
+.maps.loader {height: 392px;overflow: hidden; width: 100%;}
+
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.cs-form-holder {
+    margin-bottom: 20px;
+}
+
+.input-holder {
+    position: relative;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    width: 520px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.subscribe-label {
+    font-size: 14px;
+}
+
+.cf-btn-submit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* Mobile CSS */
+@media screen and (max-width: 980px) {
+    .form-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-inputs,
+    .right-input {
+        width: 100%;
+    }
+
+    .cs-form-holder {
+        margin-bottom: 15px;
+    }
+
+    .input-holder input[type="text"],
+    .input-holder input[type="email"],
+    .input-holder input[type="tel"],
+    .input-holder textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .cf-btn-submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .cf-btn-submit input[type="submit"] {
+        width: 80%;
+        padding: 12px 0;
+        background-color: #f10000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        height: 50px;
+    }
+
+    .subscribe-label {
+        font-size: 14px;
+    }
+}
+
+.maps.loader {
+    transform: none !important;
+    animation: none !important;
+  }
+  
+  .maps iframe {
+    transform: none !important;
+    animation: none !important;
+  }
+  
+
+/* Separator styling */
+.em-seprater {
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+  }
+
+

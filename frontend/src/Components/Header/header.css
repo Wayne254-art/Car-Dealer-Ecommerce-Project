@@ -1,0 +1,408 @@
+#header {
+    background-color: #000422;
+    z-index: 1000;
+}
+
+/* .em-logo img {} */
+.em-main-nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-right: 20px;
+    margin-top: 10px;
+}
+
+#main-navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#main-navigation ul li {
+    position: relative;
+    margin-left: 20px;
+}
+
+#main-navigation ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+    font-size: 12px;
+    display: block;
+    margin-left: 10px;
+}
+
+#main-navigation ul li a:hover {
+    background-color: transparent;
+    color: #ff2121;
+}
+
+#main-navigation ul li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    list-style: none;
+    min-width: 150px;
+    z-index: 99;
+}
+
+#main-navigation ul li:hover ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#main-navigation ul li ul li {
+    margin-left: 0;
+}
+
+#main-navigation ul li ul li a {
+    font-size: 12px;
+    color: #d8d6d6;
+    font-weight: 700;
+    padding: 10px 0;
+    border-bottom: #f1f1f1 solid 1px;
+}
+
+.em-user-option {
+    position: relative;
+}
+
+.em-login {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    vertical-align: middle;
+}
+
+.em-login-dropdown {
+    position: relative;
+}
+
+.em-user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    padding: 10px;
+    list-style: none;
+    min-width: 150px;
+    z-index: 99;
+}
+
+.em-user-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.em-user-dropdown ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+.em-login-dropdown:hover .em-user-dropdown {
+    display: block;
+}
+
+.em-user-dropdown ul li a span {
+    border-radius: 2px;
+    display: inline-block;
+    padding: 0 5px 1px;
+    line-height: 17px;
+    color: green;
+    position: absolute;
+    margin-left: 8px;
+    right: auto;
+    top: 5px;
+    font-size: 10px;
+}
+
+.btn-sell-car {
+    background-color: #ff2121;
+    color: black;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.btn-sell-car:hover {
+    background-color: #555;
+}
+
+.post-ad {
+    border-bottom: #f1f1f1 solid 1px;
+}
+
+#mobile-header {
+    display: none;
+}
+
+
+/*======================================= Mobile Css ==========================================*/
+
+.mobile-display-menu-items,
+.mobile-exit-menu-items {
+    display: none;
+}
+
+#mobile-main-navbar {
+    display: none;
+}
+
+.mobile-em-user-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px 0;
+    border-top: 1px solid #ddd;
+}
+
+.mobile-em-login {
+    display: flex;
+    align-items: center;
+}
+
+.mobile-em-login-dropdown {
+    position: relative;
+}
+
+.mobile-em-user-dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 200px;
+    z-index: 10;
+}
+
+.mobile-em-login-dropdown:hover .mobile-em-user-dropdown {
+    display: block;
+}
+
+.mobile-btn-sell-car {
+    background-color: #ff2121;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.mobile-btn-sell-car:hover {
+    background-color: #d90f0f;
+}
+
+.mobile-em-user-dropdown ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-em-user-dropdown ul li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.mobile-em-user-dropdown ul li:last-child {
+    border-bottom: none;
+}
+
+.mobile-em-user-dropdown ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.mobile-em-user-dropdown ul li a:hover {
+    color: #ff2121;
+}
+
+.mobile-em-user-dropdown strong {
+    display: block;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+}
+
+@media (max-width: 768px) {
+
+    .mobile-display-menu-items,
+    .mobile-exit-menu-items {
+        display: block;
+    }
+
+    #mobile-main-navbar {
+        display: block;
+        justify-content: flex-start;
+    }
+
+    #mobile-main-navbar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    #mobile-main-navbar ul li {
+        padding: 10px 0;
+    }
+
+    #mobile-main-navbar ul li ul {
+        display: none;
+    }
+
+    #mobile-main-navbar ul li:hover ul {
+        display: block;
+        padding-left: 20px;
+    }
+
+    .mobile-menu {
+        display: flex;
+        flex-direction: row;
+        padding: 10px;
+        align-items: center;
+    }
+
+    #mobile-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+        background-color: #f8f9fa;
+    }
+
+    #header {
+        display: none;
+    }
+
+    .mobile-btn-sell-car{
+        font-size: 15px;
+    }
+}
+
+
+
+#mobile-header {
+    position: relative;
+    background-color: #f8f9fa;
+    padding: 10px;
+    z-index: 1000;
+}
+
+.mobile-em-logo {
+    margin-bottom: 10px;
+}
+
+.mobile-display-menu-items,
+.mobile-exit-menu-items {
+    display: block;
+    cursor: pointer;
+    float: left;
+    line-height: 1.125em;
+    margin-top: 2px;
+    padding: 10px;
+    position: relative;
+    text-decoration: none;
+    width: 100px;
+    margin-left: 5px;
+}
+
+.mobile-display-menu-items .slicknav_icon-bar+.slicknav_icon-bar,
+.mobile-exit-menu-items .slicknav_icon-bar+.slicknav_icon-bar {
+    margin-top: 0.188em;
+}
+
+#mobile-main-navbar {
+    position: fixed;
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    transition: right 0.3s ease-in-out;
+    z-index: 999;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+#mobile-main-navbar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+    margin-top: 100px;
+}
+
+#mobile-main-navbar ul li {
+    display: block;
+    margin-bottom: 2px;
+}
+
+#mobile-main-navbar ul li a {
+    padding: 10px 15px;
+    margin: 2px 0;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgb(136, 131, 131);
+    display: block;
+    margin-left: 10px;
+    width: 85%;
+}
+
+li > span {
+    width: 80%;
+}
+
+#mobile-main-navbar ul li span {
+    padding: 10px 15px;
+    margin: 2px 0;
+    text-decoration: none;
+    color: #fff;
+    border: 1px solid rgb(136, 131, 131);
+    margin-left: 10px;
+    width: 90%;
+}
+
+#mobile-main-navbar ul li ul {
+    padding-left: 10px;
+    display: none;
+}
+
+#mobile-main-navbar ul li:hover ul {
+    display: block;
+}
+
+#mobile-main-navbar ul li a:hover {
+    color: #ff2121;
+}
+
+#mobile-main-navbar.active {
+    right: 0;
+}
+
+.mobile-exit-menu-items {
+    position: absolute;
+    margin-top: 10px;
+    top: 10px;
+    right: 20px;
+}

@@ -1,0 +1,41 @@
+
+
+
+#footer{background-color: ivory;padding-top: 20px;}
+.widget-about-us ul{margin:0;padding:0;}
+.widget-about-us ul li{margin:0;padding:0;display:block;line-height:24px;}
+.widget-about-us ul li a{display:block;font-weight: 20px; font-size:16px;color:#262029;position: relative;text-decoration: none;}
+.widget-about-us ul li a:hover{text-decoration:none;padding-left: 13px;color: #f70000;}
+.widget-about-us  ul li a:before{content: "\00BB";;font-family: icomoon;position: absolute;top: 0;left: -5px;opacity: 0;visibility: hidden;font-size: 14px;}
+.widget-about-us  ul li a:hover:before{opacity: 1;visibility:visible;color: #f70000;}
+.widget-news-letter p{font-size:16px;line-height:20px;}
+.widget-news-letter .em-form {margin-bottom:17px;}
+.widget-news-letter .em-form .input-holder {position:relative;}
+.widget-news-letter .em-form .input-holder input[type="email"]{background-color: rgb(219, 215, 215); width:100%;display:inline-block;border:0.5px black solid;border-radius:0;height:39px;padding-right:50px;padding: 20px;}
+.widget-news-letter .em-form .input-holder input[type="submit"]{background-color:#f70000;border:0;border-radius:0;font-size:11px;font-weight:700;text-transform:uppercase;padding:20px;line-height:0;text-indent:-999px;margin-top: 1px;}
+.widget-news-letter .em-form .input-holder label{position:absolute;top:0;right:-4px;text-align:center;cursor:pointer;}
+.widget-news-letter .em-form .input-holder label i{position:absolute;top:9px;left:8px;font-size:20px;color:#fff;}
+.widget-news-letter .em-social-media ul{margin:0;padding:0;display:inline-block;}
+.widget-news-letter .em-social-media ul li{margin:0;padding:0;display:inline-block;margin-right:4px;}
+.widget-news-letter .em-social-media ul li:last-child{margin-right:0;}
+.widget-news-letter .em-social-media ul li a{text-decoration: none; font-size:18px; border-radius: 3px 2px 2px 3px/3px;display:inline-block;width: 25px;height: 26px;text-align:center;line-height:28px;}
+.widget-news-letter .em-social-media ul li a i{color:#FFF !important;}
+.widget-news-letter .em-social-media ul li a:hover{text-decoration:none;}
+.widget-news-letter .em-social-media ul li a[data-original-title="facebook"] {background: #3b589e none repeat scroll 0 0;}
+.widget-news-letter .em-social-media ul li a[data-original-title="twitter"] {background: #2b97f0 none repeat scroll 0 0;}
+.widget-news-letter .em-social-media ul li a[data-original-title="linkedin"] {background: #1c82ca none repeat scroll 0 0;}
+.widget-news-letter .em-social-media ul li a[data-original-title="google"] {background: #dc4e41 none repeat scroll 0 0;}
+.widget-news-letter .em-social-media ul li a[data-original-title="threads"] {background: #e78733 none repeat scroll 0 0;}
+.widget-news-letter .em-social-media ul li a[data-original-title="instagram"] {background: #d82929 none repeat scroll 0 0;}
+.widget-news-letter .em-social-media ul li a[data-original-title="tiktok"] {background: #000000 none repeat scroll 0 0;}
+footer#footer .copyright-text p{color: #FFF; margin-bottom:0;}
+footer#footer .em-copyright .em-back-to-top {display: flex;align-items: center;justify-content: center;}
+footer#footer .em-copyright address{font-style:normal;display:inline-block;margin-right:17px;}
+footer#footer .em-copyright address i{display:inline-block;vertical-align:middle;color:#fffafa !important;font-size:18px;}
+footer#footer .em-copyright address a{text-decoration: none; display:inline-block;vertical-align:middle;color:#FFF !important;font-size:14px;font-weight:700;}
+footer#footer .em-copyright address a:hover{text-decoration:none;}
+footer#footer .em-copyright .btn-to-top{display:inline-block;border-radius:50px;color:#161215 !important;width:20px;height:20px;font-size:20px;margin-top:0; vertical-align:middle;line-height:1px;}
+footer#footer .em-copyright .btn-to-top:hover{text-decoration:none;}
+footer#footer .em-copyright {background:#141215; padding-top:37px; padding-bottom:37px;}
+  
+@media screen and (max-width: 980px){footer#footer .em-copyright .em-back-to-top{display: flex;align-items: center;justify-content: center;} #footer-item{display: none;}.widget-about-us{display: none;}footer#footer .copyright-text p{color: #FFF; margin-bottom:0;font-size: 12px;}}

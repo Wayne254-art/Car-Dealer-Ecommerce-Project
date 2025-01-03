@@ -1,0 +1,107 @@
+
+
+.signup-form {
+    background-color: aliceblue;
+    max-width: 480px;
+    margin: 0 auto;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  .signup-form h2 {
+    margin-bottom: 10px;
+  }
+  
+  .signup-form p {
+    margin-bottom: 20px;
+  }
+  
+  .social-login {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .google-btn,
+  .facebook-btn {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .google-btn {
+    background-color: #000000;
+    color: white;
+    cursor: pointer;
+  }
+
+  .google-btn:hover{
+    background-color: #000;
+  }
+  
+  .facebook-btn {
+    background-color: #000000;
+    color: white;
+  }
+
+  .facebook-btn:hover{
+    background-color: #000;
+  }
+  
+  .or-text {
+    margin: 20px 0;
+    font-weight: bold;
+  }
+  
+  .em-input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .seller-type {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .seller-type label {
+    flex: 1;
+    margin: 0 5px;
+  }
+  
+  .privacy-policy {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .privacy-link {
+    color: #ff2121;
+    text-decoration: none;
+  }
+  
+  .em-register-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #ff2121;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  
+  

@@ -1,0 +1,51 @@
+
+
+    // const [vehicles, setVehicles] = useState([]);
+
+    // const fetchVehicles = async () => {
+    //     try {
+    //         const response = await axios.get('http://localhost:7071/api/vehicles/random/expensive/car');
+    //         console.log('API response:', response.data);
+
+    //         if (response.data) {
+    //             console.log('Setting vehicles state:', [response.data]);
+    //             setVehicles([response.data]);
+    //         } else {
+    //             console.log('No data received');
+    //             setVehicles([]);
+    //         }
+    //     } catch (error) {
+    //         console.error('Error fetching vehicles:', error);
+    //         setVehicles([]);
+    //     }
+    // };
+
+    // useEffect(() => {
+    //     fetchVehicles();
+    //     const interval = setInterval(fetchVehicles, 10000); // Fetch every 3 hours
+
+    //     return () => clearInterval(interval);
+    // }, []);
+
+    // useEffect(() => {
+    //     console.log('Vehicles state:', vehicles);
+    // }, [vehicles]);
+
+    // if (!vehicles.length) {
+    //     return (
+    //         <div className="loader-container">
+    //             <div className="loader"></div>
+    //         </div>
+    //     );
+    // }
+
+
+
+    -- Disable foreign key checks
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Delete all rows from the table
+DELETE FROM vehicles;
+
+-- Re-enable foreign key checks
+SET FOREIGN_KEY_CHECKS = 1;

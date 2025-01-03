@@ -1,0 +1,81 @@
+
+
+#em-construction {padding: 175px 0;background: url('../Assets/Images/Under-Construction.jpg') no-repeat center center;background-size: cover;}
+.em-construction{padding:50px;position:relative;}
+.em-light-overlay{background:rgba(51, 51, 51, 0.301);position:absolute;top:0;left:0;width:100%;height:100%;padding-left: 30px;}
+.em-construction-holder{z-index:999;margin-left: 30px;}
+.em-construction-logo{margin:0 0 42px;padding:0;}
+.em-construction em{font-size:22px;color:#ff2121;font-style:normal;margin-bottom:39px;display:block;font-weight:700;}
+.em-construction em span{display:block;font-size:60px;line-height:normal;text-transform:uppercase;font-weight:300;margin-bottom:8px;}
+.em-const-counter{margin-bottom:46px; padding:22px 0;border-top:solid 1px #ff2121;; border-bottom:solid 1px #ff2121;}
+.under-construction-time-box{display:flex;flex-direction:row;font-weight:700;}
+.under-construction-time-box h4{color:#ff2121 !important; font-size:36px !important;display:inline-block !important;font-weight:700;}
+.under-construction-time-box .label{color:#999; font-size:14px; text-transform:uppercase;display:inline-block !important;font-weight:700;}
+.em-construction p{font-size:15px !important; margin:0 0 23px;}
+.em-construction .em-form {padding-bottom:50px;}
+.em-construction .em-form .input-holder {position:relative;width:361px;}
+.em-construction .em-form .input-holder:before{position:absolute;top:9px;left:20px;font-family: 'icomoon';color:#d1d1d1}
+.em-construction .em-form .input-holder input[type="email"]{width:100%;display:inline-block;border:0;border-radius:0;height:43px;padding-right:50px;padding-left:48px;font-size:13px;}
+.em-construction .em-form .input-holder input[type="submit"]{color:#ff2121;border:0;border-radius:0;font-size:11px;font-weight:700;text-transform:uppercase;padding:22px 22px 21px;line-height:0;}
+.em-construction .em-form .input-holder label{position:absolute;top:0;right:-4px;text-align:center;cursor:pointer;}
+
+@media (max-width: 768px) {
+    #em-construction {
+      padding: 175px 0;
+    }
+  
+    .em-construction {
+      padding: 50px;
+    }
+  
+    .em-light-overlay {
+      padding-left: 30px;
+    }
+  
+    .em-construction-holder {
+      margin-left: 30px;
+    }
+  
+    .em-construction-logo {
+      margin-bottom: 42px;
+    }
+  
+    .em-construction em {
+      font-size: 22px;
+      margin-bottom: 39px;
+    }
+  
+    .em-construction em span {
+      font-size: 60px;
+    }
+  
+    .em-const-counter {
+      margin-bottom: 46px;
+      padding: 22px 0;
+    }
+  
+    .under-construction-time-box {
+      flex-direction: row;
+    }
+  
+    .under-construction-time-box h4 {
+      font-size: 36px !important;
+    }
+  
+    .under-construction-time-box .label {
+      font-size: 14px;
+    }
+  
+    .em-construction p {
+      margin-bottom: 23px;
+    }
+  
+    .em-construction .em-form {
+      padding-bottom: 50px;
+    }
+  
+    .em-construction .em-form .input-holder {
+      max-width: 361px;
+    }
+  }
+  
