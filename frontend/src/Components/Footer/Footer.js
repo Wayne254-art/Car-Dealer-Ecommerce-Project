@@ -35,7 +35,7 @@ const Footer = () => {
             <Col md='5' id='em-footer-item'>
               <div className='em-media'>
                 <figure style={{height:'40px',width:'40px'}}>
-                  <Link to="#"><img src="#" alt="Elite_Motors" /></Link>
+                  <Link to="#"><img src="#" alt="Wayne_Auto_Sales" /></Link>
                 </figure>
               </div>
               <h4>Our Company</h4>

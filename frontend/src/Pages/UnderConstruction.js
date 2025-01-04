@@ -26,7 +26,7 @@ const UnderConstruction = () => {
                                 <div className="em-construction-holder">
                                     <div className="em-light-overlay"></div>
                                     <div className="em-construction-logo">
-                                        <figure><span><img src="" alt="Elite_Motors" /></span></figure>
+                                        <figure><span><img src="" alt="Wayne_Auto_Sales" /></span></figure>
                                     </div>
                                     <em><span className="em-color">Sorry!</span>We are currently working on an awesome new page.</em>
                                     <div className="em-const-counter">

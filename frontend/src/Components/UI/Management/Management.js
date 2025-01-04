@@ -18,7 +18,7 @@ const Logo = () => {
         </svg>
       </div>
       <div className="logo-text">
-        <span className="logo-name">ELITE_MOTORS</span>
+        <span className="logo-name">Wayne_Auto_Sales</span>
         <span className="logo-year">2023</span>
       </div>
     </div>

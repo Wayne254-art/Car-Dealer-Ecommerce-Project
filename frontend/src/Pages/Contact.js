@@ -52,7 +52,7 @@ const Contact = () => {
                 <div className="em-contact-info">
                   <div className="em-text">
                     <h6>Contact Info</h6>
-                    <p>Elite_Motors # Office Address; Ruiru, Kiambu, Kenya</p>
+                    <p>Wayne_Auto_Sales # Office Address; Ruiru, Kiambu, Kenya</p>
                   </div>
                 </div>
               </Col>
