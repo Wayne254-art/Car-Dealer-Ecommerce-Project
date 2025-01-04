@@ -1,4 +1,5 @@
-Features
+   Features
+
 Car Listings – Users can browse and filter cars by make, model, year, price, mileage, and more.
 Advanced Search – Dynamic filters enable users to find vehicles based on specific criteria such as fuel type, transmission, and body style.
 Image Uploads – Sellers can upload multiple images for each listing with drag-and-drop functionality.
@@ -11,6 +12,7 @@ Email Notifications – Automatic email alerts for new listings, promotions, and
 Mobile Responsive – Fully responsive design optimized for mobile, tablet, and desktop devices.
 
  Tech Stack
+
 Frontend: React, Redux, Axios, React Router, Tailwind CSS
 Backend: Node.js, Express, Sequelize (MySQL), mysql2, sqllite
 Authentication: JWT (JSON Web Tokens)
