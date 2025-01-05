@@ -1,23 +1,13 @@
 
-
 // backend/app.js
 const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
 const cors = require('cors');
 const sequelize = require('./db/db')
-const subscriptionRoutes = require('./routes/MailFormRoutes/SubscriptionRoutes');
-const vehiclesDetailRouter = require('./routes/Vehicles/ListingDetailRoutes');
-const vehiclesDetailContactRouter = require('./routes/Vehicles/ListingDetailRoutes');
-const AddlistingRoutes = require('./routes/Vehicles/AddListingRoutes');
-const StockListingRoutes = require('./routes/Vehicles/StockListingRoutes');
-const ListingFilterCondition = require('./routes/Vehicles/ListingFilterCondition');
-const FilterByMake = require('./routes/Vehicles/ListingFilterCondition')
-const RandomExpensiveCar = require('./routes/Vehicles/RandomFetchRoute')
-const AddTeamMember = require('./routes/Team/MemberRoutes')
-const FetchTeamMember = require('./routes/Team/MemberRoutes')
-const ContactFormSubmissions = require('./routes/MailFormRoutes/ContactFormSubmissions')
+
 const UserRoutes = require('./routes/auth.routes')
+const listingRoutes = require('./routes/listings.routes')
 
 const fs = require('fs');
 const uploadDir = './uploads';
@@ -28,29 +18,26 @@ if (!fs.existsSync(uploadDir)) {
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: ['http://localhost:3000', 'http://localhost:3001'], 
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',                
+  allowedHeaders: ['Content-Type', 'Authorization'],         
+  credentials: true                                          
+};
+
+app.use(cors(corsOptions));
 // app.use(bodyParser.json());
 
 // Set up body-parser middleware
-app.use(bodyParser.json({ limit: '50mb' })); // Adjust the limit as needed
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 const storage = multer.memoryStorage();
 const upload = multer({ storage, limits: { fileSize: 50 * 1024 * 1024 } });
 
 app.use('/uploads', express.static('uploads'));
 
-app.use('/api/subscription', subscriptionRoutes);
-app.use('/api/vehicles/detail/fetch', vehiclesDetailRouter);
-app.use('/api/vehicles/detail/contact', vehiclesDetailContactRouter);
-app.use('/api/add/listing', AddlistingRoutes);
-app.use('/api/stock', StockListingRoutes)
-app.use('/api/vehicle/', ListingFilterCondition)
-app.use('/api/vehicle/make', FilterByMake)
-app.use('/api/vehicles/random/expensive', RandomExpensiveCar)
-app.use('/api/team/member', AddTeamMember)
-app.use('/api/team/member', FetchTeamMember)
-app.use('/api/contact/form', ContactFormSubmissions)
 app.use('/api/auth', UserRoutes)
+app.use('/api/listings', listingRoutes)
 
 
 sequelize.sync()

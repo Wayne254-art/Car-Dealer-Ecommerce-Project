@@ -3,14 +3,26 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 // Base URL for your API
-const API_URL = 'http://localhost:7071/api/user';
+const API_URL = 'http://localhost:7071/api';
 
 // Async Thunks
 export const registerUser = createAsyncThunk(
   'user/register',
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${API_URL}/register`, userData);
+      const response = await axios.post(`${API_URL}/auth/user/register`, userData);
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const registerSeller = createAsyncThunk(
+  'seller/register',
+  async (sellerData, { rejectWithValue }) => {
+    try {
+      const response = await axios.post(`${API_URL}/auth/seller/register`, sellerData);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -22,7 +34,7 @@ export const loginUser = createAsyncThunk(
   'user/login',
   async (credentials, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${API_URL}/login`, credentials);
+      const response = await axios.post(`${API_URL}/auth/user/login`, credentials, {withCredentials: true});
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -34,7 +46,7 @@ export const forgotPassword = createAsyncThunk(
   'user/forgotPassword',
   async (email, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${API_URL}/forgot-password`, { email });
+      const response = await axios.post(`${API_URL}/auth/user/forgot-password`, { email });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -46,7 +58,7 @@ export const resetPassword = createAsyncThunk(
   'user/resetPassword',
   async ({ token, password }, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`${API_URL}/reset-password`, { token, password });
+      const response = await axios.post(`${API_URL}/auth/user/reset-password`, { token, password });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);

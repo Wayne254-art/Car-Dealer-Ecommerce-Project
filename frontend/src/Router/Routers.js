@@ -24,6 +24,7 @@ import VehicleDetails from '../Pages/VehicleDetails';
 import MobileFaq from '../Components/UI/MobileFAQ/MobileFaq';
 import Register from '../Pages/Register';
 import Login from '../Pages/Login';
+import Shop from '../Pages/Shop';
 
 const Routers = () => {
   return (
@@ -34,6 +35,7 @@ const Routers = () => {
         <Route path="/stock" element={<Stock />} />
         <Route path="/compare" element={<Compare />} />
         <Route path="/updates" element={<Updates />} />
+        <Route path="/shop" element={<Shop />} />
         <Route path="/team" element={<OurTeam />} />
         <Route path="/faqs" element={<Faqs />} />
         <Route path="/contact" element={<Contact />} />

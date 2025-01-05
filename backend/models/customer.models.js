@@ -1,11 +1,11 @@
 
-// models/User.js
+// models/customer.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../db/db');
 const bcrypt = require('bcryptjs');
 
-const User = sequelize.define('User', {
-    userId: {
+const Customer = sequelize.define('customer', {
+    customerId: {
         type: DataTypes.UUID,
         defaultValue: DataTypes.UUIDV4,
         allowNull: false,
@@ -33,7 +33,7 @@ const User = sequelize.define('User', {
     role: {
         type: DataTypes.STRING,
         allowNull: false,
-        defaultValue: 'User',
+        defaultValue: 'customer',
     },
     phonenumber: {
         type: DataTypes.STRING,
@@ -58,4 +58,4 @@ const User = sequelize.define('User', {
     },
 });
 
-module.exports = User;
+module.exports = Customer;

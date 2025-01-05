@@ -2,7 +2,8 @@
 
 
 // controllers/authController.js
-const User = require('../models/user.models');
+const User = require('../models/customer.models');
+const seller = require('../models/sellers.models')
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
@@ -17,13 +18,31 @@ exports.signup = async (req, res) => {
       if (checkUser)
         return res.json({
           success: false,
-          message: "User already exists!proceed to Login.",
+          message: "customer already exists!proceed to Login.",
         });
 
         const newUser = await User.create({ firstname, lastname, email, password });
-        res.status(201).json({ message: 'User registered successfully', user: newUser });
+        res.status(201).json({ message: 'customer registered successfully', user: newUser });
     } catch (error) {
-        res.status(500).json({ message: 'Error registering user', error });
+        res.status(500).json({ message: 'Error registering customer', error });
+    }
+};
+
+exports.signup = async (req, res) => {
+    const { firstname, lastname, email, password } = req.body;
+
+    try {
+      const checkUser = await seller.findOne({ where: { email } });
+      if (checkUser)
+        return res.json({
+          success: false,
+          message: "Seller already exists!proceed to Login.",
+        });
+
+        const newUser = await User.create({ firstname, lastname, email, password });
+        res.status(201).json({ message: 'seller registered successfully', user: newUser });
+    } catch (error) {
+        res.status(500).json({ message: 'Error registering seller', error });
     }
 };
 

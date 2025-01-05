@@ -31,5 +31,5 @@
 
 **Backend**: Node.js, Express, Sequelize (MySQL), mysql2, sqllite
 
-**Authentication**: JWT (JSON Web Tokens)
+**Authentication**: JWT (JSON Web Tokens), bcrypt
 

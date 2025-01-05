@@ -274,6 +274,10 @@
         align-items: center;
     }
 
+    #header-nav{
+        display: none;
+    }
+
     #mobile-header {
         display: flex;
         flex-direction: column;

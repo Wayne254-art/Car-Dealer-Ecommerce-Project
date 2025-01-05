@@ -4,31 +4,64 @@ import { Link, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faChevronDown, faPlus, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 // import { RiArrowDropDownLine } from "react-icons/ri";
-import {
-    FaUser,
-    // FaLock,
-    // FaFacebookF,
-    // FaTwitter,
-    // FaGoogle,
-    // FaEnvelope,
-    // FaBars,
-} from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { MdEmail } from "react-icons/md";
 import { AiFillQuestionCircle } from "react-icons/ai";
 import './header.css';
 import { useDispatch, useSelector } from "react-redux";
+import toast, { Toaster } from 'react-hot-toast';
+import { loginUser, registerUser,registerSeller } from '../../store/reducers/userReducers.js'
 
 const Header = () => {
     const [menuOpen, setMenuOpen] = useState(false);
     const [submenuOpen, setSubmenuOpen] = useState(false);
     const [isLoginOverlayVisible, setIsLoginOverlayVisible] = useState(false);
+    const [isSignInOverlayVisible, setIsSignInOverlayVisible] = useState(false);
+    const [isUserSignInOverlayVisible, setIsUserSignInOverlayVisible] = useState(false);
     const [isSignUpOverlayVisible, setIsSignUpOverlayVisible] = useState(false);
+    const [isCustomerSignUpOverlayVisible, setIsCustomerSignUpOverlayVisible] = useState(false);
+    const [isSellerSignUpOverlayVisible, setIsSellerSignUpOverlayVisible] = useState(false);
     const [isForgotPasswordOverlayVisible, setIsForgotPasswordOverlayVisible] = useState(false);
     const [animationClass, setAnimationClass] = useState("");
     const location = useLocation();
 
-    const { user } = useSelector((state) => state?.user);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const dispatch = useDispatch();
+    const { loading, user } = useSelector((state) => state?.user);
+
+    const handleLoginSubmit = (e) => {
+        e.preventDefault();
+        dispatch(loginUser({ email, password }))
+        .unwrap()
+        .then((response) => {
+          toast.success(response.message);
+        })
+        .catch((error) => {
+          toast.error(error.message);
+          console.log(error);
+        });
+    };
+
+    const formData = useState({
+        firstname: '',
+        lastName: '',
+        email: '',
+        password: '',
+    })
+    const handleSignUpSubmit = (e) => {
+        e.preventDefault();
+        dispatch(registerUser({ email, password }))
+        .unwrap()
+        .then((response) => {
+          toast.success(response.message);
+        })
+        .catch((error) => {
+          toast.error(error.message);
+          console.log(error);
+        });
+    };
 
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
@@ -47,7 +80,11 @@ const Header = () => {
         setAnimationClass("slide-down");
         setTimeout(() => {
             setIsLoginOverlayVisible(false);
+            setIsSignInOverlayVisible(false);
             setIsSignUpOverlayVisible(false);
+            setIsUserSignInOverlayVisible(false);
+            setIsCustomerSignUpOverlayVisible(false);
+            setIsSellerSignUpOverlayVisible(false);
             setIsForgotPasswordOverlayVisible(false);
         }, 300);
     };
@@ -57,9 +94,29 @@ const Header = () => {
         setTimeout(() => setIsLoginOverlayVisible(true), 300);
     };
 
+    const handleSignInClick = () => {
+        setAnimationClass("slide-up");
+        setTimeout(() => setIsSignInOverlayVisible(true), 300);
+    };
+
     const handleSignUpClick = () => {
         setAnimationClass("slide-up");
         setTimeout(() => setIsSignUpOverlayVisible(true), 300);
+    };
+
+    const handleUserSignUpClick = () => {
+        setAnimationClass("slide-up");
+        setTimeout(() => setIsUserSignInOverlayVisible(true), 300);
+    };
+
+    const handleCustomerSignUpClick = () => {
+        setAnimationClass("slide-up");
+        setTimeout(() => setIsCustomerSignUpOverlayVisible(true), 300);
+    };
+
+    const handleSellerSignUpClick = () => {
+        setAnimationClass("slide-up");
+        setTimeout(() => setIsSellerSignUpOverlayVisible(true), 300);
     };
 
     const handleForgotPasswordClick = () => {
@@ -69,7 +126,7 @@ const Header = () => {
 
     return (
         <>
-            <header className="z-[1000] bg-[#000422]">
+            <header id='header-nav' className="z-[1000] bg-[#000422] md:">
                 <Container>
                     <Row>
                         <Col lg='2' md='2' sm='12' xs='12'>
@@ -91,6 +148,7 @@ const Header = () => {
                                         <li><Link to='/stock'>stock</Link></li>
                                         <li><Link to='/under-construction'>compare</Link></li>
                                         <li><Link to='/updates'>updates</Link></li>
+                                        <li><Link to='/shop'>shop</Link></li>
                                         <li>
                                             <Link to='#'>more</Link>
                                             <ul className={submenuOpen ? 'active' : ''}>
@@ -167,6 +225,7 @@ const Header = () => {
                             <li><Link to='/stock'>stock</Link></li>
                             <li><Link to='/under-construction'>compare</Link></li>
                             <li><Link to='/updates'>updates</Link></li>
+                            <li><Link to='/shop'>shop</Link></li>
                             <li>
                                 <span onClick={toggleMoremenu}>more</span>
                                 <ul className={submenuOpen ? 'active' : ''}>
@@ -232,7 +291,8 @@ const Header = () => {
                             <RxCross2 />
                         </div>
                         <h2 className="text-xl font-bold text-center mb-8">USER SIGN IN</h2>
-                        <form className='overflow-y-auto'>
+
+                        <form onClick={handleLoginSubmit} className='overflow-y-auto'>
                             <div className="mb-4">
                                 <label
                                     className="block text-gray-700 text-sm mb-2"
@@ -244,8 +304,8 @@ const Header = () => {
                                     <input
                                         type="text"
                                         id="email"
-                                        // value={email}
-                                        // onChange={(e) => setEmail(e.target.value)}
+                                        value={email}
+                                        onChange={(e) => setEmail(e.target.value)}
                                         placeholder="Enter Your Email"
                                         className="w-full focus:outline-none"
                                         required
@@ -265,8 +325,8 @@ const Header = () => {
                                     <input
                                         type="password"
                                         id="password"
-                                        // value={password}
-                                        // onChange={(e) => setPassword(e.target.value)}
+                                        value={password}
+                                        onChange={(e) => setPassword(e.target.value)}
                                         placeholder="******"
                                         className="w-full focus:outline-none"
                                         required
@@ -289,9 +349,11 @@ const Header = () => {
 
                             <button
                                 type="submit"
+                                // value={loading ? 'LOGGING IN...' : 'LOGIN'}
+                                disabled={loading}
                                 className="w-full bg-red-600 text-white py-2 rounded border border-red-600 hover:bg-red-500"
                             >
-                                SIGN IN
+                                {loading ? 'SIGNING IN...' : 'SIGNIN'}
                             </button>
 
                             {/* <div className="my-4 flex items-center justify-center">
@@ -403,7 +465,124 @@ const Header = () => {
                             <RxCross2 />
                         </div>
                         <h2 className="text-2xl font-bold text-center mb-8">
-                            CREATE ACCOUNT
+                            CREATE A CUSTOMER ACCOUNT
+                        </h2>
+
+                        <form onClick={handleSignUpSubmit}>
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="firstname"
+                                >
+                                    FIRSTNAME
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="text"
+                                        id="firstname"
+                                        value={formData.firstname}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        placeholder="Enter Your FirstName"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaUser className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="lastname"
+                                >
+                                    LASTNAME
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="text"
+                                        id="lastname"
+                                        value={formData.lastName}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        placeholder="Enter Your LastName"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaUser className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="email"
+                                >
+                                    EMAIL
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        value={formData.email}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        placeholder="Enter Valid EmailAddress"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaEnvelope className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="password"
+                                >
+                                    PASSWORD
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        value={formData.password}
+                                        onChange={(e) => setPassword(e.target.value)}
+                                        placeholder="******"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaLock className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+                            <button
+                                type="submit"
+                                className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700"
+                            >
+                                Create Account
+                            </button>
+                            <span
+                                className="flex justify-center text-gray-500 mt-4 hover:underline cursor-pointer hover:text-red-700"
+                                onClick={handleSellerSignUpClick}
+                            >
+                                signup as a seller
+                            </span>
+                        </form>
+                    </div>
+                </div>
+            )}
+
+            {/* --------------------------------------Seller SignUp ---------------------------------------- */}
+            {isSellerSignUpOverlayVisible && (
+                <div
+                    className={` overflow-y-auto fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ${animationClass}`}
+                >
+                    <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full relative">
+                        <div
+                            className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-2xl"
+                            onClick={handleCloseOverlay}
+                        >
+                            <RxCross2 />
+                        </div>
+                        <h2 className="text-2xl font-bold text-center mb-8">
+                            CREATE A SELLER ACCOUNT
                         </h2>
 
                         <form>
@@ -498,14 +677,359 @@ const Header = () => {
                             </button>
                             <span
                                 className="flex justify-center text-gray-500 mt-4 hover:underline cursor-pointer hover:text-red-700"
-                                onClick={handleLoginClick}
+                                onClick={handleCustomerSignUpClick}
                             >
-                                Already Have Account
+                                signup as a customer
                             </span>
                         </form>
                     </div>
                 </div>
             )}
+
+            {/* ---------------------------------customerSignUp Form---------------------------------- */}
+            {isCustomerSignUpOverlayVisible && (
+                <div
+                    className={` overflow-y-auto fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ${animationClass}`}
+                >
+                    <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full relative">
+                        <div
+                            className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-2xl"
+                            onClick={handleCloseOverlay}
+                        >
+                            <RxCross2 />
+                        </div>
+                        <h2 className="text-2xl font-bold text-center mb-8">
+                            CREATE A CUSTOMER ACCOUNT
+                        </h2>
+
+                        <form>
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="firstname"
+                                >
+                                    FIRSTNAME
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="text"
+                                        id="firstname"
+                                        // value={formData.firstname}
+                                        // onChange={handleChange}
+                                        placeholder="Enter Your FirstName"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaUser className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="lastname"
+                                >
+                                    LASTNAME
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="text"
+                                        id="lastname"
+                                        // value={formData.lastname}
+                                        // onChange={handleChange}
+                                        placeholder="Enter Your LastName"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaUser className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="email"
+                                >
+                                    EMAIL
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        // value={formData.email}
+                                        // onChange={handleChange}
+                                        placeholder="Enter Valid EmailAddress"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaEnvelope className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="password"
+                                >
+                                    PASSWORD
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        // value={formData.password}
+                                        // onChange={handleChange}
+                                        placeholder="******"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaLock className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+                            <button
+                                type="submit"
+                                className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700"
+                            >
+                                Create Account
+                            </button>
+                            <span
+                                className="flex justify-center text-gray-500 mt-4 hover:underline cursor-pointer hover:text-red-700"
+                                onClick={handleSignInClick}
+                            >
+                                already have an account
+                            </span>
+                        </form>
+                    </div>
+                </div>
+            )}
+
+            {/* ---------------------------------Login Form---------------------------------- */}
+            {isSignInOverlayVisible && (
+                <div
+                    className={` overflow-y-auto fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ${animationClass}`}
+                >
+                    <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full relative">
+                        <div
+                            className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-2xl"
+                            onClick={handleCloseOverlay}
+                        >
+                            <RxCross2 />
+                        </div>
+                        <h2 className="text-xl font-bold text-center mb-8">USER SIGN IN</h2>
+                        <form className='overflow-y-auto'>
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="email"
+                                >
+                                    EMAIL
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="text"
+                                        id="email"
+                                        // value={email}
+                                        // onChange={(e) => setEmail(e.target.value)}
+                                        placeholder="Enter Your Email"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaUser className="text-gray-400 ml-2" /> */}
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="password"
+                                >
+                                    PASSWORD
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        // value={password}
+                                        // onChange={(e) => setPassword(e.target.value)}
+                                        placeholder="******"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaLock className="text-gray-400 ml-2" /> */}
+                                </div>
+                            </div>
+
+                            <div className="mb-4 flex justify-end items-center cursor-pointer">
+                                <span
+                                    className="text-gray-500 text-sm hover:underline flex items-center"
+                                    onClick={handleForgotPasswordClick}
+                                >
+                                    <span className="mr-2">
+                                        <AiFillQuestionCircle />
+                                    </span>{" "}
+                                    Forgot Password?
+                                </span>
+                            </div>
+
+                            <button
+                                type="submit"
+                                className="w-full bg-red-600 text-white py-2 rounded border border-red-600 hover:bg-red-500"
+                            >
+                                SIGN IN
+                            </button>
+
+                            {/* <div className="my-4 flex items-center justify-center">
+                                <hr className="w-1/5 border-gray-300" />
+                                <span className="mx-2 text-gray-500 text-sm">OR</span>
+                                <hr className="w-1/5 border-gray-300" />
+                            </div>
+
+                            <p className="text-center text-sm text-gray-500 mb-4">
+                                Signin with your Social Networks
+                            </p>
+
+                            <div className="flex justify-between">
+                                <div className="bg-blue-800 text-white px-4 py-2 rounded-full flex items-center hover:bg-blue-700 cursor-pointer">
+                                    <FaFacebookF className="mr-2" /> Facebook
+                                </div>
+                                <div className="bg-blue-500 text-white px-4 py-2 rounded-full flex items-center hover:bg-blue-400 cursor-pointer">
+                                    <FaTwitter className="mr-2" /> Twitter
+                                </div>
+                                <div className="bg-red-600 text-white px-4 py-2 rounded-full flex items-center hover:bg-red-500 cursor-pointer">
+                                    <FaGoogle className="mr-2" /> Google
+                                </div>
+                            </div> */}
+                            <span
+                                className="flex justify-center text-gray-500 mt-4 hover:underline cursor-pointer hover:text-red-700"
+                                onClick={handleUserSignUpClick}
+                            >
+                                <span className="mr-2 mt-1">
+                                    <AiFillQuestionCircle />
+                                </span>
+                                Don't Have Account
+                            </span>
+                        </form>
+                    </div>
+                </div>
+            )}
+
+            {/* ---------------------------------customerSignUp Form---------------------------------- */}
+            {isUserSignInOverlayVisible && (
+                <div
+                    className={` overflow-y-auto fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50 ${animationClass}`}
+                >
+                    <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full relative">
+                        <div
+                            className="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-2xl"
+                            onClick={handleCloseOverlay}
+                        >
+                            <RxCross2 />
+                        </div>
+                        <h2 className="text-2xl font-bold text-center mb-8">
+                            CREATE A CUSTOMER ACCOUNT
+                        </h2>
+
+                        <form>
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="firstname"
+                                >
+                                    FIRSTNAME
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="text"
+                                        id="firstname"
+                                        // value={formData.firstname}
+                                        // onChange={handleChange}
+                                        placeholder="Enter Your FirstName"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaUser className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="lastname"
+                                >
+                                    LASTNAME
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="text"
+                                        id="lastname"
+                                        // value={formData.lastname}
+                                        // onChange={handleChange}
+                                        placeholder="Enter Your LastName"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaUser className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="email"
+                                >
+                                    EMAIL
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        // value={formData.email}
+                                        // onChange={handleChange}
+                                        placeholder="Enter Valid EmailAddress"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaEnvelope className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+
+                            <div className="mb-4">
+                                <label
+                                    className="block text-gray-700 text-sm mb-2"
+                                    htmlFor="password"
+                                >
+                                    PASSWORD
+                                </label>
+                                <div className="flex items-center border border-gray-300 rounded">
+                                    <input
+                                        type="password"
+                                        id="password"
+                                        // value={formData.password}
+                                        // onChange={handleChange}
+                                        placeholder="******"
+                                        className="w-full focus:outline-none"
+                                        required
+                                    />
+                                    {/* <FaLock className="text-gray-400 mr-2" /> */}
+                                </div>
+                            </div>
+                            <button
+                                type="submit"
+                                className="w-full bg-red-600 text-white py-2 rounded hover:bg-red-700"
+                            >
+                                Create Account
+                            </button>
+                            {/* <span
+                                className="flex justify-center text-gray-500 mt-4 hover:underline cursor-pointer hover:text-red-700"
+                                onClick={handleSellerSignUpClick}
+                            >
+                                signup as a seller
+                            </span> */}
+                        </form>
+                    </div>
+                </div>
+            )}
+            <Toaster />
         </>
     );
 };
