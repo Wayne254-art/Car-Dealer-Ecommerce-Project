@@ -28,7 +28,7 @@ exports.signup = async (req, res) => {
     }
 };
 
-exports.signup = async (req, res) => {
+exports.sellerSignup = async (req, res) => {
     const { firstname, lastname, email, password } = req.body;
 
     try {

@@ -1,7 +1,7 @@
 
 // controllers/listingsController.js
-const Listings = require('../models/listings.models');
-const Sellers = require('../models/sellers.models');
+const Listings = require('../../models/listings.models');
+const Sellers = require('../../models/sellers.models');
 
 // Create a new listing
 exports.AddListing = async (req, res) => {

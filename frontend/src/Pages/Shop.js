@@ -2,17 +2,17 @@
 import React from 'react';
 
 const products = [
-    { id: 1, name: 'BREMBO SPORT BRAKES', price: '$2,000.00', image: '/images/brake.png' },
-    { id: 2, name: 'USB AIR COMPRESSOR', price: '$2,000.00', image: '/images/compressor.png' },
-    { id: 3, name: 'NINJA SOUND', price: '$2,000.00', image: '/images/speaker.png' },
-    { id: 4, name: 'Air Filter', price: '$900.00', image: '/images/filter.png' },
-    { id: 5, name: 'Car Mats for BMW', price: '$900.00', image: '/images/mats.png' },
+    { id: 1, name: 'BREMBO SPORT BRAKES', price: 'Kes.2,000.00', image: '/images/brake.png' },
+    { id: 2, name: 'USB AIR COMPRESSOR', price: 'Kes.2,000.00', image: '/images/compressor.png' },
+    { id: 3, name: 'NINJA SOUND', price: 'Kes.2,000.00', image: '/images/speaker.png' },
+    { id: 4, name: 'Air Filter', price: 'Kes.900.00', image: '/images/filter.png' },
+    { id: 5, name: 'Car Mats for BMW', price: 'Kes.900.00', image: '/images/mats.png' },
 ];
 
 const mostRated = [
-    { id: 2, name: 'USB Air Compressor', price: '$500.00', image: '/images/compressor.png' },
-    { id: 3, name: 'Ninja Sound', price: '$800.00', image: '/images/speaker.png' },
-    { id: 5, name: 'Car mats for BMW', price: '$900.00', image: '/images/mats.png' },
+    { id: 2, name: 'USB Air Compressor', price: 'Kes.500.00', image: '/images/compressor.png' },
+    { id: 3, name: 'Ninja Sound', price: 'Kes.800.00', image: '/images/speaker.png' },
+    { id: 5, name: 'Car mats for BMW', price: 'Kes.900.00', image: '/images/mats.png' },
 ];
 
 const Shop = () => {
